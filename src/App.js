@@ -9,7 +9,7 @@ const App = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [volume, setVolume] = useState(50);
   const [audio] = useState(new Audio());
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(true);
 
   useEffect(() => {
     const savedVolume = localStorage.getItem('radioVolume');
@@ -27,6 +27,10 @@ const App = () => {
     audio.volume = volume / 100;
     localStorage.setItem('radioVolume', volume.toString());
   }, [volume]);
+
+  useEffect(() => {
+    document.body.classList.toggle('dark-mode', isDarkMode);
+  }, [isDarkMode]);
 
   const handlePlayStation = (station) => {
     if (currentStation && currentStation.id === station.id) {
@@ -64,21 +68,20 @@ const App = () => {
 
   const toggleDarkMode = () => {
     setIsDarkMode(!isDarkMode);
-    document.body.classList.toggle('dark-mode', !isDarkMode);
   };
 
   return (
-    <div className={`app ${isDarkMode ? 'dark-mode' : ''} flex flex-col items-center min-h-screen bg-gray-50 p-4 md:p-8`}>
+    <div className={`app${isDarkMode ? ' dark-mode' : ''} flex flex-col items-center min-h-screen${isDarkMode ? '' : ' bg-gray-50'} p-4 md:p-8`}>
       <header className="app-header">
         <button onClick={toggleDarkMode} className="btn">
           {isDarkMode ? 'Modo Claro' : 'Modo Oscuro'}
         </button>
       </header>
-      <div className="max-w-2xl mx-auto text-center">
+      <div className={`max-w-2xl mx-auto text-center${isDarkMode ? ' dark-mode' : ''}`}>
         <h1 className="text-3xl font-bold mb-8">RadioWave</h1>
 
         <div className="mb-8 w-full">
-          <NowPlaying station={currentStation} />
+          <NowPlaying station={currentStation} isDarkMode={isDarkMode} />
         </div>
 
         <div className="mb-8 w-full">
@@ -92,7 +95,6 @@ const App = () => {
         </div>
 
         <div className="station-container space-y-4 w-full">
-          <h2 className="text-xl font-semibold">Estaciones</h2>
           {stations.map(station => (
             <RadioStationCard 
               key={station.id}

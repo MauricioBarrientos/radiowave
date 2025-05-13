@@ -10,8 +10,89 @@ body {
 
 /* Modo oscuro mejorado */
 body.dark-mode {
-  background-color: #181818;
+  background-color: #181a20;
   color: #e0e0e0;
+}
+
+.app.dark-mode, .max-w-2xl.dark-mode, .bg-white.dark-mode {
+  background-color: #23272f !important;
+  color: #e0e0e0 !important;
+}
+
+.station-card.dark-mode {
+  background-color: #23272f !important;
+  border-color: #353945 !important;
+  color: #e0e0e0 !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.7);
+}
+
+.btn-play.dark-mode {
+  background-color: #2563eb !important;
+  color: #fff !important;
+  border: none;
+}
+
+.btn-play.dark-mode:hover {
+  background-color: #ff9800 !important;
+  color: #fff !important;
+}
+
+.card-title.dark-mode, .card-text.dark-mode {
+  color: #e0e0e0 !important;
+}
+
+.station-card-content.dark-mode {
+  color: #e0e0e0 !important;
+}
+
+input[type="range"].dark-mode {
+  background: #353945 !important;
+}
+
+a.dark-mode {
+  color: #90caf9 !important;
+}
+
+/* Mejorar el NowPlaying en modo oscuro */
+.flex.items-center.gap-4.p-4.bg-white.rounded-xl.shadow-sm.border.border-gray-100.dark-mode {
+  background-color: #23272f !important;
+  border-color: #353945 !important;
+  color: #e0e0e0 !important;
+}
+
+.card.dark-mode, .station-card.dark-mode, .bg-white.dark-mode {
+  background-color: #23272f !important;
+  border-color: #353945 !important;
+  color: #e0e0e0 !important;
+}
+
+.btn-play.dark-mode {
+  background-color: #2563eb !important;
+  color: #fff !important;
+  border: none;
+}
+
+.btn-play.dark-mode:hover {
+  background-color: #ff9800 !important;
+  color: #fff !important;
+}
+
+.card-title.dark-mode, .card-text.dark-mode {
+  color: #e0e0e0 !important;
+}
+
+.station-card-content.dark-mode {
+  color: #e0e0e0 !important;
+}
+
+/* Mejorar contraste de los bordes y sombras en modo oscuro */
+.station-card.dark-mode {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.7);
+}
+
+/* Ajustar el color de los enlaces en modo oscuro */
+a.dark-mode {
+  color: #90caf9 !important;
 }
 
 .card.dark-mode {
@@ -37,6 +118,12 @@ body.dark-mode {
 
 .card-text.dark-mode {
   color: #b0b0b0;
+}
+
+/* Modo oscuro para el h3 de 'Ahora sonando' */
+h3.dark-mode {
+  color: #90caf9 !important;
+  background: #23272f !important;
 }
 
 /* Contenedor principal */
