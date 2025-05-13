@@ -122,8 +122,8 @@ a.dark-mode {
 
 /* Modo oscuro para el h3 de 'Ahora sonando' */
 h3.dark-mode {
-  color: #90caf9 !important;
-  background: #23272f !important;
+  color: #90caf9;
+  background: #23272f;
 }
 
 /* Contenedor principal */
