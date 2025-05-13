@@ -3,23 +3,7 @@ import React from 'react';
 const PlayerControls = ({ isPlaying, onPlayPause, onVolumeChange, volume, isDarkMode }) => {
   return (
     <div className={`flex items-center gap-4 p-4 bg-white rounded-xl shadow-sm border border-gray-100${isDarkMode ? ' dark-mode' : ''}`}>
-      <button 
-        onClick={onPlayPause}
-        className={`w-14 h-14 rounded-full flex items-center justify-center transition-colors shadow-lg focus:outline-none ${isPlaying ? 'bg-red-500 hover:bg-red-600' : 'bg-green-500 hover:bg-green-600'} ${isDarkMode ? 'dark-mode' : ''}`}
-        aria-label={isPlaying ? 'Pausar' : 'Reproducir'}
-      >
-        {isPlaying ? (
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="6" y="5" width="4" height="14" rx="1" fill="white"/>
-            <rect x="14" y="5" width="4" height="14" rx="1" fill="white"/>
-          </svg>
-        ) : (
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M8 5V19L19 12L8 5Z" fill="white"/>
-          </svg>
-        )}
-      </button>
-      
+      {/* Botón de play/pausa eliminado */}
       <div className="flex-1 flex items-center gap-2">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M12 1C12 1 7 5 7 12C7 19 12 23 12 23C12 23 17 19 17 12C17 5 12 1 12 1Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>

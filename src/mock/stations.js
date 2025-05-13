@@ -7,13 +7,6 @@ const stations = [
     url: "https://admin.stream.rinse.fm/proxy/rinse_uk/stream"
   },
   {
-    id: 2,
-    name: "Junglist Sudaka Radio",
-    frequency: "92.3 FM",
-    cover: "https://jsradio.ipstream.cl/img/logo.png",
-    url: "https://stream.ipstream.cl/8004/stream"
-  },
-  {
     id: 3,
     name: "Nova Dance",
     frequency: "95.7 FM",
@@ -47,6 +40,13 @@ const stations = [
     frequency: "104.7 FM",
     cover: "https://www.radio.es/300/lemellotron.png?version=bb3e52fc5599ee6edb27d8615f4db685",
     url: "https://listen.radioking.com/radio/477719/stream/534044"
+  },
+  {
+    id: 8,
+    name: "RINSE FM FRANCE",
+    frequency: "101.30 FM",
+    cover: "https://www.appcreator24.com/srv/imgs/temp/j53dbiclpu_1_p.png?ts=1747163285",
+    url: "https://radio10.pro-fhi.net/flux-trmqtiat/stream"
   }
 ];
 
