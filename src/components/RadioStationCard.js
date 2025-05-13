@@ -1,45 +1,26 @@
 import React from 'react';
 
 const RadioStationCard = ({ station, isPlaying, onPlay }) => {
-  const rinseLogo = "https://www.radio.es/300/rinsefm.png?version=8268dbe7483856e14935784819b08265";
-  const junglistLogo = "https://jsradio.ipstream.cl/img/logo.png";
-  const dropFmLogo = "https://i1.sndcdn.com/avatars-YBwwjMvFaVyERmaa-YJ7dkg-t1080x1080.jpg";
-  const islaNegraLogo = "https://cdn-profiles.tunein.com/s329780/images/logod.png?t=638589574450000000";
-  const ntsRadioLogo = "https://cdn-profiles.tunein.com/s150238/images/bannerx.jpg";
-  const leMellotronLogo = "https://www.radio.es/300/lemellotron.png?version=bb3e52fc5599ee6edb27d8615f4db685";
-  const novaDanceLogo = "https://www.nova.fr/wp-content/thumbnails/uploads/sites/2/2024/05/NOVA-nova-400x496-1-t-1260x1260.png";
-
   return (
     <div 
-      className={`card text-center shadow-sm p-3 h-100 ${isPlaying ? 'border-dark bg-light' : 'border-secondary'}`}
+      className={`station-card bg-white rounded-xl shadow-sm border border-gray-200 flex flex-col items-center justify-between p-4 transition-transform duration-300 cursor-pointer ${isPlaying ? 'ring-2 ring-blue-500' : ''}`}
       onClick={() => onPlay(station)}
     >
-      {/* Logo de la estación */}
-      <div className="d-flex justify-content-center">
+      <div className="station-card-content flex flex-col items-center w-full">
         <img 
-          src={station.name === "Rinse FM" ? rinseLogo : 
-               station.name === "Junglist Sudaka Radio" ? junglistLogo : 
-               station.name === "DropFm.com" ? dropFmLogo : 
-               station.name === "Radio Isla Negra Upbeat" ? islaNegraLogo : 
-               station.name === "NTS Radio" ? ntsRadioLogo : 
-               station.name === "Le Mellotron" ? leMellotronLogo : 
-               station.name === "Nova Dance" ? novaDanceLogo : 
-               station.logo} 
+          src={station.cover} 
           alt={station.name} 
-          className="radio-logo card-img-top" 
+          className="radio-cover mb-2" 
         />
+        <h5 className="card-title font-bold text-lg text-center mb-1">{station.name}</h5>
+        <p className="card-text text-gray-500 text-center mb-2">{station.frequency}</p>
       </div>
-
-      {/* Información de la estación */}
-      <div className="card-body">
-        <h5 className="card-title">{station.name}</h5>
-        <p className="card-text text-muted">{station.frequency}</p>
-
-        {/* Botón de reproducción */}
-        <button className={`btn ${isPlaying ? 'btn-danger' : 'btn-primary'} mt-2`} onClick={() => onPlay(station)}>
-          {isPlaying ? 'Pausar' : 'Escuchar'}
-        </button>
-      </div>
+      <button 
+        className={`btn-play w-full mt-2 ${isPlaying ? 'bg-red-500 text-white' : 'bg-blue-500 text-white'} hover:bg-blue-600 rounded-lg transition-colors`}
+        onClick={e => { e.stopPropagation(); onPlay(station); }}
+      >
+        {isPlaying ? 'Pausar' : 'Escuchar'}
+      </button>
     </div>
   );
 };
