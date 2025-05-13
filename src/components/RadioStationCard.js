@@ -16,7 +16,8 @@ const RadioStationCard = ({ station, isPlaying, onPlay }) => {
         <p className="card-text text-gray-500 text-center mb-2">{station.frequency}</p>
       </div>
       <button 
-        className={`btn-play w-full mt-2 ${isPlaying ? 'bg-red-500 text-white' : 'bg-blue-500 text-white'} hover:bg-blue-600 rounded-lg transition-colors`}
+        style={{ backgroundColor: isPlaying ? '#ef4444' : '#2563eb', color: '#fff', border: 'none' }}
+        className={`btn-play w-full mt-2 hover:bg-orange-500 rounded-lg transition-colors`}
         onClick={e => { e.stopPropagation(); onPlay(station); }}
       >
         {isPlaying ? 'Pausar' : 'Escuchar'}
