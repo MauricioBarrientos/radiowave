@@ -87,6 +87,7 @@ const App = () => {
             onPlayPause={handlePlayPause}
             onVolumeChange={handleVolumeChange}
             volume={volume}
+            isDarkMode={isDarkMode}
           />
         </div>
 
@@ -98,6 +99,7 @@ const App = () => {
               station={station}
               isPlaying={isPlaying && currentStation?.id === station.id}
               onPlay={handlePlayStation}
+              isDarkMode={isDarkMode}
             />
           ))}
         </div>
