@@ -47,7 +47,14 @@ const stations = [
     frequency: "101.30 FM",
     cover: "https://www.appcreator24.com/srv/imgs/temp/j53dbiclpu_1_p.png?ts=1747163285",
     url: "https://radio10.pro-fhi.net/flux-trmqtiat/stream"
-  }
+  },
+  {
+    id: 9,
+    name: "Capital Xtra",
+    frequency: "105.1 FM",
+    cover: "https://cdn.instant.audio/images/logos/internetradiouk-com/choice-london.png",
+    url: "https://media-ice.musicradio.com/CapitalXTRALondonMP3"
+  },
 ];
 
 export default stations;
