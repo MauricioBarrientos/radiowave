@@ -331,12 +331,3 @@ button[aria-label^="Agregar"], button[aria-label^="Quitar"] {
   background: transparent;
   cursor: pointer;
 }
-
-/* Animación para el nuevo NowPlaying */
-.now-playing-cool {
-  animation: fadeInNowPlaying 0.5s;
-}
-@keyframes fadeInNowPlaying {
-  from { opacity: 0; transform: translateY(-10px); }
-  to { opacity: 1; transform: translateY(0); }
-}

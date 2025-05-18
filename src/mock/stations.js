@@ -16,8 +16,8 @@ const stations = [
   {
     id: 4,
     name: "DropFm.com",
-    frequency: "101.1 FM",
-    cover: "https://i1.sndcdn.com/avatars-YBwwjMvFaVyERmaa-YJ7dkg-t1080x1080.jpg",
+    frequency: "Online",
+    cover: "http://www.dropfm.com/uploads/1/2/4/0/124005161/new-logo-black.png",
     url: "https://s2.radio.co/s7649837db/listen"
   },
   {
@@ -45,7 +45,7 @@ const stations = [
     id: 8,
     name: "RINSE FM FRANCE",
     frequency: "101.30 FM",
-    cover: "https://www.appcreator24.com/srv/imgs/temp/j53dbiclpu_1_p.png?ts=1747163285",
+    cover: "https://www.radio.es/300/rinsefm.png?version=8268dbe7483856e14935784819b08265",
     url: "https://radio10.pro-fhi.net/flux-trmqtiat/stream"
   },
   {

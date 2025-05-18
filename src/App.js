@@ -94,7 +94,9 @@ const App = () => {
   };
 
   return (
-    <div className={`app${isDarkMode ? ' dark-mode' : ''} flex flex-col items-center min-h-screen${isDarkMode ? '' : ' bg-gray-50'} p-4 md:p-8`}>
+    <div className={`app${isDarkMode ? ' dark-mode' : ''} flex flex-col items-center min-h-screen${isDarkMode ? '' : ' bg-gray-50'} p-4 md:p-8`}
+      style={{ minHeight: '100vh', width: '100vw', boxSizing: 'border-box' }}
+    >
       <header className="app-header flex flex-col md:flex-row items-center justify-between w-full max-w-2xl mx-auto mb-4 gap-4">
         <button onClick={toggleDarkMode} className="btn" aria-label="Alternar modo oscuro/claro">
           {isDarkMode ? 'Modo Claro' : 'Modo Oscuro'}
@@ -108,7 +110,9 @@ const App = () => {
           aria-label="Buscar estación"
         />
       </header>
-      <div className={`max-w-2xl mx-auto text-center${isDarkMode ? ' dark-mode' : ''}`}>        
+      <div className={`max-w-2xl mx-auto text-center${isDarkMode ? ' dark-mode' : ''}`}
+        style={{ width: '100%', maxWidth: 600 }}
+      >        
         <h1 className="text-3xl font-bold mb-8">RadioWave</h1>
         <div className="mb-8 w-full">
           <NowPlaying 
