@@ -43,6 +43,9 @@ const RadioStationCard = React.memo(({ station, isPlaying, onPlay }) => {
         <p className="text-sm text-gray-500 dark:text-gray-400">
           {station.frequency}
         </p>
+        <p className="text-xs text-gray-600 dark:text-gray-300 mt-1">
+          {station.description}
+        </p>
       </div>
 
       <div className="flex items-center justify-center w-full">
@@ -66,6 +69,7 @@ RadioStationCard.propTypes = {
     name: PropTypes.string.isRequired,
     frequency: PropTypes.string.isRequired,
     cover: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
   }).isRequired,
   isPlaying: PropTypes.bool.isRequired,
   onPlay: PropTypes.func.isRequired,
