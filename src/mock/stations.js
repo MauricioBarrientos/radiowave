@@ -19,7 +19,8 @@ const stations = [
     id: 4,
     name: 'DropFm.com',
     frequency: 'Online',
-    cover: 'http://www.dropfm.com/uploads/1/2/4/0/124005161/new-logo-black.png',
+    cover:
+      'https://png.pngtree.com/png-clipart/20230501/ourmid/pngtree-classic-radio-icon-3d-png-image_7094541.png',
     url: 'https://s2.radio.co/s7649837db/listen',
   },
   {
