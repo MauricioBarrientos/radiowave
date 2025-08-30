@@ -62,6 +62,13 @@ const stations = [
       'https://cdn.instant.audio/images/logos/internetradiouk-com/choice-london.png',
     url: 'https://media-ice.musicradio.com/CapitalXTRALondonMP3',
   },
+  {
+    id: 10,
+    name: 'Groove Salad Classic',
+    frequency: 'Online',
+    cover: 'https://api.somafm.com/logos/256/gsclassic256.jpg',
+    url: 'https://ice6.somafm.com/gsclassic-128-aac',
+  },
 ]
 
 export default stations
