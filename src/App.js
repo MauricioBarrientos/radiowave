@@ -8,9 +8,6 @@ const App = () => {
   const [isPlaying, setIsPlaying] = useState(false)
   const [audio] = useState(new Audio())
   const [isDarkMode, setIsDarkMode] = useState(true)
-  const [favorites, setFavorites] = useState(() =>
-    JSON.parse(localStorage.getItem('radioFavorites') || '[]')
-  )
   const [search, setSearch] = useState('')
 
   useEffect(() => {
@@ -23,10 +20,6 @@ const App = () => {
   useEffect(() => {
     document.body.className = isDarkMode ? 'dark-mode' : ''
   }, [isDarkMode])
-
-  useEffect(() => {
-    localStorage.setItem('radioFavorites', JSON.stringify(favorites))
-  }, [favorites])
 
   const handlePlayStation = useCallback(
     (station) => {
@@ -61,27 +54,14 @@ const App = () => {
     setIsDarkMode((prevMode) => !prevMode)
   }, [])
 
-  const handleFavorite = useCallback((id) => {
-    setFavorites((favs) =>
-      favs.includes(id) ? favs.filter((f) => f !== id) : [...favs, id]
-    )
-  }, [])
-
   const filteredStations = useMemo(() => {
     const lowercasedSearch = search.toLowerCase()
-    return stationsData
-      .filter(
-        (station) =>
-          station.name.toLowerCase().includes(lowercasedSearch) ||
-          station.frequency.toLowerCase().includes(lowercasedSearch)
-      )
-      .sort((a, b) => {
-        const aIsFav = favorites.includes(a.id)
-        const bIsFav = favorites.includes(b.id)
-        if (aIsFav === bIsFav) return 0
-        return aIsFav ? -1 : 1
-      })
-  }, [search, favorites])
+    return stationsData.filter(
+      (station) =>
+        station.name.toLowerCase().includes(lowercasedSearch) ||
+        station.frequency.toLowerCase().includes(lowercasedSearch)
+    )
+  }, [search])
 
   return (
     <div className={`app ${isDarkMode ? 'dark-mode' : 'bg-gray-50'}`}>
@@ -137,8 +117,6 @@ const App = () => {
                   station={station}
                   isPlaying={isPlaying && currentStation?.id === station.id}
                   onPlay={handlePlayStation}
-                  isFavorite={favorites.includes(station.id)}
-                  onFavorite={handleFavorite}
                 />
               ))}
             </div>
