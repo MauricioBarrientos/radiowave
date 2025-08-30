@@ -20,7 +20,7 @@ const stations = [
     name: 'DropFm.com',
     frequency: 'Online',
     cover:
-      'https://png.pngtree.com/png-clipart/20230501/ourmid/pngtree-classic-radio-icon-3d-png-image_7094541.png',
+      'https://is1-ssl.mzstatic.com/image/thumb/Purple116/v4/f6/84/e9/f684e970-3f93-a24c-3edc-2cd7b6200585/AppIcon-0-1x_U007emarketing-0-10-0-85-220.png/230x0w.webp',
     url: 'https://s2.radio.co/s7649837db/listen',
   },
   {
