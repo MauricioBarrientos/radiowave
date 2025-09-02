@@ -98,6 +98,15 @@ const stations = [
     url: 'https://ice3.somafm.com/poptron-128-aac',
     description: 'Electropop y indie dance rock con brillo y pop.',
   },
+  {
+    Id: 13,
+    name: 'The In-Sound From Way Out',
+    frequency: 'Online',
+    cover: 'https://api.somafm.com/logos/256/insound-256.jpg',
+    url: 'https://ice1.somafm.com/insound-128-aac',
+    description:
+      'Pop europeo hipster de los años 60 y 70, donde las melodías\npsicodélicas se combinan con vibraciones maravillosas.',
+  },
 ]
 
 export default stations

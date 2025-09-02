@@ -9,46 +9,14 @@ const App = () => {
   const audioRef = useRef(null)
   const isDarkMode = true
   const [search, setSearch] = useState('')
-  const [errorMessage, setErrorMessage] = useState(null)
 
   useEffect(() => {
-    const handleError = (e) => {
-      console.error('Audio error:', e)
-      let message = 'Ocurrió un error desconocido con el audio.'
-      if (e.target.error) {
-        switch (e.target.error.code) {
-          case e.target.error.MEDIA_ERR_ABORTED:
-            message = 'La reproducción de audio fue abortada.'
-            break
-          case e.target.error.MEDIA_ERR_NETWORK:
-            message = 'Un error de red impidió la descarga del audio.'
-            break
-          case e.target.error.MEDIA_ERR_DECODE:
-            message =
-              'El audio no pudo ser decodificado. El formato podría no ser compatible.'
-            break
-          case e.target.error.MEDIA_ERR_SRC_NOT_SUPPORTED:
-            message =
-              'La estación no pudo ser cargada. El formato no es compatible o la URL no es válida.'
-            break
-          default:
-            message = 'Ocurrió un error inesperado con el audio.'
-            break
-        }
-      }
-      setErrorMessage(message)
-      setIsPlaying(false) // Stop playing on error
-    }
-
     if (!audioRef.current) {
       audioRef.current = new Audio()
     }
 
-    audioRef.current.addEventListener('error', handleError)
-
     return () => {
       if (audioRef.current) {
-        audioRef.current.removeEventListener('error', handleError)
         audioRef.current.pause()
         audioRef.current.src = ''
       }
@@ -59,19 +27,8 @@ const App = () => {
     document.body.className = isDarkMode ? 'dark-mode' : ''
   }, [isDarkMode])
 
-  // Autoplay Rinse FM on component mount
-  useEffect(() => {
-    const rinseFmStation = stationsData.find(
-      (station) => station.name === 'Rinse FM'
-    )
-    if (rinseFmStation) {
-      handlePlayStation(rinseFmStation)
-    }
-  }, []) // Empty dependency array ensures this runs only once on mount
-
   const handlePlayStation = useCallback(
     (station) => {
-      setErrorMessage(null) // Clear any previous error
       if (currentStation?.id === station.id) {
         if (isPlaying) {
           audioRef.current.pause()
@@ -146,28 +103,6 @@ const App = () => {
 
         <main className="text-center">
           <h1 className="text-4xl font-bold mb-8">RadioWave</h1>
-
-          {errorMessage && (
-            <div
-              className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4"
-              role="alert"
-            >
-              <strong className="font-bold">¡Error!</strong>
-              <span className="block sm:inline"> {errorMessage}</span>
-              <span className="absolute top-0 bottom-0 right-0 px-4 py-3">
-                <svg
-                  onClick={() => setErrorMessage(null)}
-                  className="fill-current h-6 w-6 text-red-500"
-                  role="button"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                >
-                  <title>Close</title>
-                  <path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z" />
-                </svg>
-              </span>
-            </div>
-          )}
 
           <div className="mb-8">
             <PlayerControls
