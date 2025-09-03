@@ -112,7 +112,7 @@ const stations = [
     name: 'Mouthfull Radio',
     frequency: 'Online',
     cover:
-      'https://mouthfull.live/wp-content/themes/mouthfull/assets/img/newradio.png',
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZgvMIX3RToaZWvw7kfV9Drk7l2kTvoegG8A&s',
     url: 'https://mouthfull-radio.radiocult.fm/stream',
     description:
       'Música espacial y ambiental para una experiencia auditiva fuera de este mundo.',
