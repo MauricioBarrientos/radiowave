@@ -107,6 +107,16 @@ const stations = [
     description:
       'Pop europeo hipster de los años 60 y 70, donde las melodías\npsicodélicas se combinan con vibraciones maravillosas.',
   },
+  {
+    Id: 14,
+    name: 'Mouthfull Radio',
+    frequency: 'Online',
+    cover:
+      'https://mouthfull.live/wp-content/themes/mouthfull/assets/img/newradio.png',
+    url: 'https://mouthfull-radio.radiocult.fm/stream',
+    description:
+      'Música espacial y ambiental para una experiencia auditiva fuera de este mundo.',
+  },
 ]
 
 export default stations
