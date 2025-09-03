@@ -85,3 +85,14 @@ input[type="range"] {
     transform: translateY(0);
   }
 }
+
+.scroll-to-top-button {
+  @apply fixed bottom-8 right-8 bg-blue-500 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-blue-600 transition-all duration-300 ease-in-out;
+  opacity: 0;
+  transform: translateY(100px);
+}
+
+.scroll-to-top-button.show {
+  opacity: 1;
+  transform: translateY(0);
+}

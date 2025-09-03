@@ -9,6 +9,7 @@ const App = () => {
   const audioRef = useRef(null)
   const isDarkMode = true
   const [search, setSearch] = useState('')
+  const [showScroll, setShowScroll] = useState(false)
 
   useEffect(() => {
     if (!audioRef.current) {
@@ -26,6 +27,21 @@ const App = () => {
   useEffect(() => {
     document.body.className = isDarkMode ? 'dark-mode' : ''
   }, [isDarkMode])
+
+  useEffect(() => {
+    const checkScrollTop = () => {
+      if (!showScroll && window.pageYOffset > 300) {
+        setShowScroll(true)
+      } else if (showScroll && window.pageYOffset <= 300) {
+        setShowScroll(false)
+      }
+    }
+
+    window.addEventListener('scroll', checkScrollTop)
+    return () => {
+      window.removeEventListener('scroll', checkScrollTop)
+    }
+  }, [showScroll])
 
   const handlePlayStation = useCallback(
     (station) => {
@@ -58,6 +74,10 @@ const App = () => {
     }
     setIsPlaying(!isPlaying)
   }, [audioRef, currentStation, isPlaying])
+
+  const scrollTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
 
   const filteredStations = useMemo(() => {
     const lowercasedSearch = search.toLowerCase()
@@ -134,6 +154,23 @@ const App = () => {
           )}
         </main>
       </div>
+      {showScroll && (
+        <button
+          onClick={scrollTop}
+          className={`scroll-to-top-button ${showScroll ? 'show' : ''}`}
+          aria-label="Volver arriba"
+        >
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z" />
+          </svg>
+        </button>
+      )}
     </div>
   )
 }
