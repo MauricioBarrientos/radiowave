@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo, useCallback, useRef } from 'react'
 import stationsData from './mock/stations'
 import RadioStationCard from './components/RadioStationCard'
-import PlayerControls from './components/PlayerControls'
+import AdvancedPlayer from './components/AdvancedPlayer'
 
 const App = () => {
   const [currentStation, setCurrentStation] = useState(null)
@@ -124,13 +124,6 @@ const App = () => {
         <main className="text-center">
           <h1 className="text-4xl font-bold mb-8">RadioWave</h1>
 
-          <div className="mb-8">
-            <PlayerControls
-              isPlaying={isPlaying}
-              onPlayPause={handlePlayPause}
-            />
-          </div>
-
           {filteredStations.length > 0 ? (
             <div className="station-container">
               {filteredStations.map((station) => (
@@ -154,6 +147,12 @@ const App = () => {
           )}
         </main>
       </div>
+      <AdvancedPlayer
+        currentStation={currentStation}
+        isPlaying={isPlaying}
+        onPlayPause={handlePlayPause}
+        audioRef={audioRef}
+      />
       {showScroll && (
         <button
           onClick={scrollTop}
