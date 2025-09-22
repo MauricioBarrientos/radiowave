@@ -117,15 +117,22 @@ const stations = [
     description:
       'Música espacial y ambiental para una experiencia auditiva fuera de este mundo.',
   },
-  {
+    {
     id: 15,
     name: 'FluxFM Chillhop',
     frequency: 'Online',
-    cover:
-      'https://www.radio.es/300/fluxfmchillhop.jpeg?version=3058137aaaeedf95e04d0c2ae097520e',
+    cover: 'https://www.radio.es/300/fluxfmchillhop.jpeg?version=3058137aaaeedf95e04d0c2ae097520e',
     url: 'https://fluxfm.streamabc.net/flx-chillhop-aacplus-64-8724785?sABC=68pp4p7p%230%236pps2942835o6n7qp247p24o83046042%23fgernzf.syhksz.qr&aw_0_1st.playerid=streams.fluxfm.de&amsparams=playerid:streams.fluxfm.de;skey:1758219388',
-    description: 'Relajante música chillhop de FluxFM.',
+    description: 'Relajante música chillhop de FluxFM.'
   },
-]
+  {
+    id: 16,
+    name: 'KoolFm',
+    frequency: 'Online',
+    cover: 'https://instagram.fyai4-1.fna.fbcdn.net/v/t51.2885-19/336810293_2310288302482398_2578698398434451031_n.jpg?stp=dst-jpg_s320x320_tt6&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLmRqYW5nby4xMDgwLmMyIn0&_nc_ht=instagram.fyai4-1.fna.fbcdn.net&_nc_cat=106&_nc_oc=Q6cZ2QHPec6o1ScHwvjlOg-W4rcVFKl8BsdfZzbKQVBq-2Q46cJ92E8b3VZ1OQzprjLlLh0&_nc_ohc=gtTMnmCStIsQ7kNvwGVpXFm&_nc_gid=dCJkRaoOkEXvprMMIC066A&edm=AOQ1c0wBAAAA&ccb=7-5&oh=00_AfbyanrEQtDQz9rbHLnb7jllcP0aWcIi7k8Q-ym7fEVmUA&oe=68D69DBD&_nc_sid=8b3546',
+    url: 'https://admin.stream.rinse.fm/proxy/rinse_uk/stream',
+    description: 'Una estación de radio icónica con lo mejor de la música electrónica y urbana. en vivo desde London UK.'
+  }
+];
 
-export default stations
+export default stations;
