@@ -42,6 +42,16 @@ const App = () => {
     }
   }, [showScroll])
 
+  useEffect(() => {
+    const handleContextMenu = (e) => {
+      e.preventDefault()
+    }
+    document.addEventListener('contextmenu', handleContextMenu)
+    return () => {
+      document.removeEventListener('contextmenu', handleContextMenu)
+    }
+  }, [])
+
   const handlePlayStation = useCallback(
     (station) => {
       if (currentStation?.id === station.id) {
