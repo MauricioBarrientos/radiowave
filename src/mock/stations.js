@@ -130,7 +130,7 @@ const stations = [
     name: 'KoolFm',
     frequency: 'Online',
     cover: 'https://upload.wikimedia.org/wikipedia/en/thumb/f/f5/Kool_FM_London_logo.png/250px-Kool_FM_London_logo.png',
-    url: 'https://admin.stream.rinse.fm/proxy/rinse_uk/stream',
+    url: 'https://admin.stream.rinse.fm/proxy/kool/stream',
     description: 'Una estación de radio icónica con lo mejor de la música electrónica y urbana. en vivo desde London UK.'
   }
 ];
