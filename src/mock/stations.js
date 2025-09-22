@@ -132,7 +132,14 @@ const stations = [
     cover: 'https://upload.wikimedia.org/wikipedia/en/thumb/f/f5/Kool_FM_London_logo.png/250px-Kool_FM_London_logo.png',
     url: 'https://admin.stream.rinse.fm/proxy/kool/stream',
     description: 'Una estación de radio icónica con lo mejor de la música electrónica y urbana. en vivo desde London UK.'
-  }
+  },
+  {
+    id: 17,
+    name: 'Sub.FM',
+    frequency: 'Online',
+    cover: 'https://www.sub.fm/wp-content/uploads/2020/11/subfm350-1.png',
+    url: 'https://streamlive1.hearthis.at:8000/9061142.ogg?time=1758572814',
+  },
 ];
 
 export default stations;
