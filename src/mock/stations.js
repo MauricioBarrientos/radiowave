@@ -137,8 +137,9 @@ const stations = [
     id: 17,
     name: 'Sub.FM',
     frequency: 'Online',
-    cover: 'https://www.sub.fm/wp-content/uploads/2020/11/subfm350-1.png',
+    cover: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRZBFICOlM_CRxlesXI7v0m5zA2xU3j5s6R_KJCjs9O73NcYaFe1MDusV0zyZM200W5w&usqp=CAU',
     url: 'https://streamlive1.hearthis.at:8000/9061142.ogg?time=1758572814',
+    description: 'Where Bass Matters.'
   },
 ];
 
