@@ -8,7 +8,6 @@ const App = () => {
   const [isPlaying, setIsPlaying] = useState(false)
   const audioRef = useRef(null)
   const isDarkMode = true
-  const [search, setSearch] = useState('')
   const [showScroll, setShowScroll] = useState(false)
 
   useEffect(() => {
@@ -79,15 +78,6 @@ const App = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
-  const filteredStations = useMemo(() => {
-    const lowercasedSearch = search.toLowerCase()
-    return stationsData.filter(
-      (station) =>
-        station.name.toLowerCase().includes(lowercasedSearch) ||
-        station.frequency.toLowerCase().includes(lowercasedSearch)
-    )
-  }, [search])
-
   return (
     <div className={`app ${isDarkMode ? 'dark-mode' : 'bg-gray-50'}`}>
       <div className="container mx-auto p-4 md:p-8">
@@ -97,9 +87,9 @@ const App = () => {
 
         <main className="text-center">
           <h1 className="text-4xl font-bold mb-8">RadioWave</h1>
-          {filteredStations.length > 0 ? (
+          {stationsData.length > 0 ? (
             <div className="station-container">
-              {filteredStations.map((station) => (
+              {stationsData.map((station) => (
                 <RadioStationCard
                   key={station.id}
                   station={station}
