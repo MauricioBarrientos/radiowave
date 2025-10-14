@@ -141,6 +141,14 @@ const stations = [
     url: 'https://streamlive1.hearthis.at:8000/9061142.ogg?time=1758572814',
     description: 'Where Bass Matters.'
   },
+  {
+    id: 18,
+    name: 'Secret Agent',
+    frequency: 'Online',
+    cover: 'https://api.somafm.com/logos/256/secretagent256.png',
+    url: 'https://ice4.somafm.com/secretagent-64-aac',
+    description: 'La banda sonora para una vida elegante, misteriosa y peligrosa.'
+  },
 ];
 
 export default stations;
