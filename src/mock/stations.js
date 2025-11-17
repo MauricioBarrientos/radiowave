@@ -65,15 +65,7 @@ const stations = [
     description:
       'La versión francesa de Rinse FM, con lo mejor de la escena underground.',
   },
-  {
-    id: 9,
-    name: 'Capital Xtra',
-    frequency: '105.1 FM',
-    cover:
-      'https://cdn.instant.audio/images/logos/internetradiouk-com/choice-london.png',
-    url: 'https://media-ice.musicradio.com/CapitalXTRALondonMP3',
-    description: 'Los éxitos más grandes del hip-hop, R&B y grime.',
-  },
+
   {
     id: 10,
     name: 'Groove Salad Classic',
