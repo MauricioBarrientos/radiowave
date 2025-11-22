@@ -22,7 +22,7 @@ body.dark-mode {
 }
 
 .station-card {
-  @apply bg-gray-50 dark:bg-gray-900 rounded-xl shadow-md flex flex-col items-center justify-between p-4 transition-all duration-300 cursor-pointer border border-gray-200 dark:border-gray-700;
+  @apply bg-gray-900 rounded-xl shadow-md flex flex-col items-center justify-between p-4 transition-all duration-300 cursor-pointer border border-gray-200 dark:border-gray-700;
 }
 
 .station-card:hover {
