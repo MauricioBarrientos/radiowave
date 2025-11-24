@@ -3,13 +3,6 @@ import stationsData from './mock/stations'
 import RadioStationCard from './components/RadioStationCard'
 import AdvancedPlayer from './components/AdvancedPlayer'
 
-const App = () => {
-  const [currentStation, setCurrentStation] = useState(null)
-  const [isPlaying, setIsPlaying] = useState(false)
-  const audioRef = useRef(null)
-  const isDarkMode = true
-  const [showScroll, setShowScroll] = useState(false)
-
 const RETRY_INTERVAL = 5000 // 5 seconds
 const MAX_RETRIES = 3
 
@@ -19,7 +12,7 @@ const App = () => {
   const audioRef = useRef(null)
   const isDarkMode = true
   const [showScroll, setShowScroll] = useState(false)
-  const retryCount = useRef(0) // Added for retry logic
+  const retryCount = useRef(0) // Correctly placed inside App component
 
   useEffect(() => {
     if (!audioRef.current) {
