@@ -114,7 +114,7 @@ const stations = [
     name: 'FluxFM Chillhop',
     frequency: 'Online',
     cover: 'https://www.radio.es/300/fluxfmchillhop.jpeg?version=3058137aaaeedf95e04d0c2ae097520e',
-    url: 'https://fluxfm.streamabc.net/flx-chillhop-aacplus-64-8724785?sABC=68pp4p7p%230%236pps2942835o6n7qp247p24o83046042%23fgernzf.syhksz.qr&aw_0_1st.playerid=streams.fluxfm.de&amsparams=playerid:streams.fluxfm.de;skey:1758219388',
+    url: 'https://channels.fluxfm.de/chillhop/externalembedflxhp/stream.aac',
     description: 'Relajante música chillhop de FluxFM.'
   },
   {

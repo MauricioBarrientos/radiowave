@@ -10,18 +10,74 @@ const App = () => {
   const isDarkMode = true
   const [showScroll, setShowScroll] = useState(false)
 
+const RETRY_INTERVAL = 5000 // 5 seconds
+const MAX_RETRIES = 3
+
+const App = () => {
+  const [currentStation, setCurrentStation] = useState(null)
+  const [isPlaying, setIsPlaying] = useState(false)
+  const audioRef = useRef(null)
+  const isDarkMode = true
+  const [showScroll, setShowScroll] = useState(false)
+  const retryCount = useRef(0) // Added for retry logic
+
   useEffect(() => {
     if (!audioRef.current) {
       audioRef.current = new Audio()
     }
 
+    const audio = audioRef.current;
+
+    const handleStreamEnded = () => {
+      console.log('Stream ended. Attempting to reconnect...');
+      if (currentStation && retryCount.current < MAX_RETRIES) {
+        retryCount.current += 1;
+        setTimeout(() => {
+          if (currentStation) {
+            audio.src = currentStation.url;
+            audio.load(); // Reload the audio element to reset its state
+            audio.play().catch(e => console.error("Error playing audio after retry:", e));
+            setIsPlaying(true);
+          }
+        }, RETRY_INTERVAL);
+      } else {
+        console.log('Max retries reached or no current station. Stopping playback.');
+        setIsPlaying(false);
+        retryCount.current = 0; // Reset retry count
+      }
+    };
+
+    const handleStreamError = (e) => {
+      console.error('Stream error:', e);
+      if (currentStation && retryCount.current < MAX_RETRIES) {
+        retryCount.current += 1;
+        setTimeout(() => {
+          if (currentStation) {
+            audio.src = currentStation.url;
+            audio.load(); // Reload the audio element to reset its state
+            audio.play().catch(e => console.error("Error playing audio after error retry:", e));
+            setIsPlaying(true);
+          }
+        }, RETRY_INTERVAL);
+      } else {
+        console.log('Max retries reached after error or no current station. Stopping playback.');
+        setIsPlaying(false);
+        retryCount.current = 0; // Reset retry count
+      }
+    };
+
+    audio.addEventListener('ended', handleStreamEnded);
+    audio.addEventListener('error', handleStreamError);
+
     return () => {
       if (audioRef.current) {
         audioRef.current.pause()
         audioRef.current.src = ''
+        audio.removeEventListener('ended', handleStreamEnded);
+        audio.removeEventListener('error', handleStreamError);
       }
     }
-  }, [audioRef])
+  }, [audioRef, currentStation]) // Added currentStation to dependencies for handleStreamEnded/Error
 
   useEffect(() => {
     document.body.className = isDarkMode ? 'dark-mode' : ''
@@ -58,7 +114,7 @@ const App = () => {
         if (isPlaying) {
           audioRef.current.pause()
         } else {
-          audioRef.current.play()
+          audioRef.current.play().catch(e => console.error("Error playing audio:", e));
         }
         setIsPlaying(!isPlaying)
       } else {
@@ -67,9 +123,11 @@ const App = () => {
         }
         audioRef.current.pause()
         audioRef.current.src = station.url
-        audioRef.current.play()
+        audioRef.current.load(); // Added to ensure new source is loaded
+        audioRef.current.play().catch(e => console.error("Error playing audio:", e)); // Added catch for play
         setCurrentStation(station)
         setIsPlaying(true)
+        retryCount.current = 0; // Reset retry count on new station play
       }
     },
     [audioRef, currentStation, isPlaying]
@@ -79,7 +137,7 @@ const App = () => {
     if (isPlaying) {
       audioRef.current.pause()
     } else if (currentStation) {
-      audioRef.current.play()
+      audioRef.current.play().catch(e => console.error("Error playing audio on play/pause:", e)); // Added catch for play
     }
     setIsPlaying(!isPlaying)
   }, [audioRef, currentStation, isPlaying])
@@ -87,6 +145,7 @@ const App = () => {
   const scrollTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
+
 
   return (
     <div className={`app ${isDarkMode ? 'dark-mode' : 'bg-gray-50'}`}>
