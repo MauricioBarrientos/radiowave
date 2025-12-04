@@ -141,6 +141,14 @@ const stations = [
     url: 'https://ice4.somafm.com/secretagent-64-aac',
     description: 'La banda sonora para una vida elegante, misteriosa y peligrosa.'
   },
+  {
+    id: 19,
+    name: 'Seven Inch Soul',
+    frequency: 'Online',
+    cover: 'https://somafm.com/logos/120/7soul120.jpg',
+    url: 'https://somafm.com/7soul130.pls',
+    description: 'Vintage soul tracks from the original 45 RPM vinyl.'
+  },
 ];
 
 export default stations;
