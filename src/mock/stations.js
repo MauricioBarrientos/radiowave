@@ -146,7 +146,7 @@ const stations = [
     name: 'Seven Inch Soul',
     frequency: 'Online',
     cover: 'https://somafm.com/logos/120/7soul120.jpg',
-    url: 'https://somafm.com/7soul.pls',
+    url: 'https://ice1.somafm.com/7soul-128-mp3',
     description: 'Vintage soul tracks from the original 45 RPM vinyl.'
   },
 ];
