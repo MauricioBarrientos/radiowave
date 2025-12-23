@@ -96,3 +96,28 @@ input[type="range"] {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* Donation Button Styles */
+.donacion-container {
+  position: relative;
+}
+
+.donacion-button {
+  @apply flex items-center gap-2 px-4 py-2 rounded-lg font-bold transition-colors duration-200 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white shadow-lg;
+}
+
+.modal-overlay {
+  @apply fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 p-4;
+}
+
+.modal-content {
+  @apply bg-gray-800 rounded-xl p-6 max-w-md w-full max-h-[90vh] overflow-y-auto;
+}
+
+.donation-option {
+  @apply bg-gray-700 p-4 rounded-lg;
+}
+
+.copy-button {
+  @apply px-3 py-2 bg-gray-600 hover:bg-gray-500 text-white rounded-lg transition-colors duration-200;
+}
