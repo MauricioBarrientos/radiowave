@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-import { FaHeart, FaBitcoin } from 'react-icons/fa';
+import { FaHeart, FaCoins } from 'react-icons/fa';
 import { QRCodeSVG } from 'qrcode.react';
 
 const DonacionButton = () => {
   const [showModal, setShowModal] = useState(false);
   const [copied, setCopied] = useState(false);
-  const bitcoinAddress = 'bc1q59q9kamryp6pk067jwxlry573fyyd70len5t2z';
+  const stellarAddress = 'GABFQIK63R2NETJM7T673EAMZN4RJLLGP3OFUEJU5SZVTGWUKULZJNL6';
 
   const handleCopyAddress = () => {
-    navigator.clipboard.writeText(bitcoinAddress);
+    navigator.clipboard.writeText(stellarAddress);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -41,10 +41,10 @@ const DonacionButton = () => {
             </div>
 
             <div className="space-y-4">
-              {/* Bitcoin Donation Option */}
+              {/* Stellar Lumens Donation Option */}
               <div className="donation-option bg-gray-700 p-4 rounded-lg">
                 <h4 className="font-bold text-lg text-white mb-2 flex items-center gap-2">
-                  <FaBitcoin className="text-orange-400" /> Bitcoin
+                  <FaCoins className="text-blue-400" /> Stellar Lumens (XLM)
                 </h4>
                 <p className="text-gray-300 mb-3">
                   Escanea el código QR o copia la dirección
@@ -52,7 +52,7 @@ const DonacionButton = () => {
                 <div className="flex flex-col items-center mb-3">
                   <div className="bg-white p-2 rounded-lg">
                     <QRCodeSVG
-                      value={`bitcoin:${bitcoinAddress}`}
+                      value={`stellar:${stellarAddress}`}
                       size={160}
                       level="H"
                       includeMargin={true}
@@ -60,16 +60,16 @@ const DonacionButton = () => {
                     />
                   </div>
                   <p className="text-xs text-gray-400 mt-2 text-center">
-                    Dirección Bitcoin (BTC)
+                    Dirección Stellar Lumens (XLM)
                   </p>
                 </div>
                 <div className="flex gap-2">
                   <input
                     type="text"
-                    value={bitcoinAddress}
+                    value={stellarAddress}
                     readOnly
                     className="flex-1 bg-gray-600 text-white px-3 py-2 rounded-lg text-sm truncate"
-                    aria-label="Dirección Bitcoin"
+                    aria-label="Dirección Stellar Lumens"
                   />
                   <button
                     onClick={handleCopyAddress}
